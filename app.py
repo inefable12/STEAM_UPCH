@@ -11,7 +11,7 @@ por semana, curso o sede para encontrar los detalles específicos de tus clases.
 """)
 
 # URL del archivo CSV en GitHub
-csv_url = "https://raw.githubusercontent.com/<tu-usuario>/<tu-repositorio>/main/HorarioJesus.csv"
+csv_url = "https://raw.githubusercontent.com/inefable12/STEAM_UPCH/refs/heads/main/HorarioJesus.csv"
 
 # Cargar datos
 #@st.cache
