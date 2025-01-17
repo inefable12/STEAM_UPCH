@@ -14,7 +14,7 @@ por semana, curso o sede para encontrar los detalles específicos de tus clases.
 csv_url = "https://raw.githubusercontent.com/<tu-usuario>/<tu-repositorio>/main/HorarioJesus.csv"
 
 # Cargar datos
-@st.cache
+#@st.cache
 def load_data():
     return pd.read_csv(csv_url)
 
