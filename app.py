@@ -4,6 +4,8 @@ import pandas as pd
 # Título de la página
 st.title("Horario de Clases STEAM - Universidad Peruana Cayetano Heredia")
 
+st.markdown(""" https://docs.google.com/presentation/d/1ZNrocygHnTLWvOAY43lcfAeF-xynHbf0/edit?usp=sharing&ouid=116234516776721649949&rtpof=true&sd=true""")
+
 # Información introductoria
 st.markdown("""
 Esta página muestra el horario de las clases STEAM disponibles. Puedes filtrar la información
