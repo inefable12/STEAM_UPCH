@@ -11,10 +11,10 @@ tabs = st.tabs(["Horarios", "Encendiendo focos con Arduino", "Uso de servomotor 
 
 # Pestaña "Horarios"
 with tabs[0]:
-    st.title("Horario de Clases STEAM - Universidad Peruana Cayetano Heredia")
+    st.title("Jesus Alvarado H, MSc. Dr.")
 
     st.markdown("""
-    Esta apartado muestra el horario de las clases STEAM. Aquí puedes ver los detalles completos de tus clases.
+    Esta apartado muestra mis horario de las clases en el ciclo verano 2025.
     """)
 
     # URL del archivo CSV en GitHub
