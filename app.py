@@ -1,52 +1,85 @@
 import streamlit as st
 import pandas as pd
 
-# Título de la página
-st.title("Horario de Clases STEAM - Universidad Peruana Cayetano Heredia")
+# Título principal de la página
+st.set_page_config(page_title="STEAM - UPCH", layout="wide")
 
-st.markdown(""" https://docs.google.com/presentation/d/1ZNrocygHnTLWvOAY43lcfAeF-xynHbf0/edit?usp=sharing&ouid=116234516776721649949&rtpof=true&sd=true""")
+# Crear pestañas
+tabs = st.tabs(["Horarios", "Encendiendo focos con Arduino", "Uso de servomotor con Arduino"])
 
-# Información introductoria
-st.markdown("""
-Esta página muestra el horario de las clases STEAM disponibles. Puedes filtrar la información
-por semana, curso o sede para encontrar los detalles específicos de tus clases.
-""")
+# Pestaña "Horarios"
+with tabs[0]:
+    st.title("Horario de Clases STEAM - Universidad Peruana Cayetano Heredia")
 
-# URL del archivo CSV en GitHub
-csv_url = "https://raw.githubusercontent.com/inefable12/STEAM_UPCH/refs/heads/main/HorarioJesus.csv"
+    st.markdown("""
+    Esta apartado muestra el horario de las clases STEAM. Puedes filtrar la información
+    por semana, curso o sede para encontrar los detalles específicos de tus clases.
+    """)
 
-# Cargar datos
-#@st.cache
-def load_data():
-    return pd.read_csv(csv_url)
+    # URL del archivo CSV en GitHub
+    csv_url = "https://raw.githubusercontent.com/inefable12/STEAM_UPCH/refs/heads/main/HorarioJesus.csv"
 
-data = load_data()
+    # Cargar datos
+    def load_data():
+        return pd.read_csv(csv_url)
 
-# Mostrar tabla completa
-st.header("Horario Completo")
-st.dataframe(data)
+    data = load_data()
 
-# Filtros
-st.sidebar.header("Filtrar Horario")
-semana = st.sidebar.selectbox("Seleccionar Semana", options=["Todas"] + sorted(data["Semana"].unique()))
-curso = st.sidebar.selectbox("Seleccionar Curso", options=["Todos"] + sorted(data["Curso"].unique()))
-sede = st.sidebar.selectbox("Seleccionar Sede", options=["Todas"] + sorted(data["Sede"].unique()))
+    # Mostrar tabla completa
+    st.header("Horario Completo")
+    st.dataframe(data)
 
-# Aplicar filtros
-filtered_data = data
-if semana != "Todas":
-    filtered_data = filtered_data[filtered_data["Semana"] == semana]
-if curso != "Todos":
-    filtered_data = filtered_data[filtered_data["Curso"] == curso]
-if sede != "Todas":
-    filtered_data = filtered_data[filtered_data["Sede"] == sede]
+    # Filtros
+    st.sidebar.header("Filtrar Horario")
+    semana = st.sidebar.selectbox("Seleccionar Semana", options=["Todas"] + sorted(data["Semana"].unique()))
+    curso = st.sidebar.selectbox("Seleccionar Curso", options=["Todos"] + sorted(data["Curso"].unique()))
+    sede = st.sidebar.selectbox("Seleccionar Sede", options=["Todas"] + sorted(data["Sede"].unique()))
 
-# Mostrar datos filtrados
-st.header("Horario Filtrado")
-st.dataframe(filtered_data)
+    # Aplicar filtros
+    filtered_data = data
+    if semana != "Todas":
+        filtered_data = filtered_data[filtered_data["Semana"] == semana]
+    if curso != "Todos":
+        filtered_data = filtered_data[filtered_data["Curso"] == curso]
+    if sede != "Todas":
+        filtered_data = filtered_data[filtered_data["Sede"] == sede]
 
-# Mensaje de despedida
-st.markdown("""
----
-Gracias por visitar esta página. Si tienes alguna pregunta, comunícate con el coordinador de las clases STEAM.
-""")
+    # Mostrar datos filtrados
+    st.header("Horario Filtrado")
+    st.dataframe(filtered_data)
+
+    # Mensaje de despedida
+    st.markdown("""
+    ---
+    Gracias por visitar esta página. Si tienes alguna pregunta, comunícate con el coordinador de las clases STEAM.
+    """)
+
+# Pestaña "Encendiendo focos con Arduino"
+with tabs[1]:
+    st.title("Encendiendo focos con Arduino")
+    url = "https://www.tiktok.com/@inefable12x/video/7463614157187861765?is_from_webapp=1&sender_device=pc&web_id=7464532847794472453"
+    st.markdown("Revisa algunas imágenes de la sesión anterior [link](%s)" % url)
+
+    
+    st.markdown("""
+    En esta sección aprenderás cómo encender y apagar focos utilizando una placa Arduino. Este proyecto incluye:
+
+    - Conexión de un circuito básico con un LED o foco.
+    - Configuración de un código sencillo en el entorno Arduino IDE.
+    - Ejecución del programa para controlar el foco.
+
+    Sigue las instrucciones proporcionadas en la clase para completar este experimento práctico.
+    """)
+
+# Pestaña "Uso de servomotor con Arduino"
+with tabs[2]:
+    st.title("Uso de servomotor con Arduino")
+    st.markdown("""
+    En esta sección aprenderás cómo controlar un servomotor usando una placa Arduino. El objetivo del proyecto es:
+
+    - Configurar el servomotor para que gire a ángulos específicos.
+    - Utilizar el código de ejemplo en Arduino IDE para controlar el movimiento del servomotor.
+    - Aplicar este conocimiento en proyectos robóticos o de automatización.
+
+    Recuerda seguir los pasos indicados en la documentación y traer los materiales necesarios para la clase.
+    """)
