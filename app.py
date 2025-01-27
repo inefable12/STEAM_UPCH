@@ -9,14 +9,12 @@ st.info("2025")
 # Crear pestañas
 tabs = st.tabs(["Horarios", "Encendiendo focos con Arduino", "Uso de servomotor con Arduino"])
 
-
 # Pestaña "Horarios"
 with tabs[0]:
     st.title("Horario de Clases STEAM - Universidad Peruana Cayetano Heredia")
 
     st.markdown("""
-    Esta apartado muestra el horario de las clases STEAM. Puedes filtrar la información
-    por semana, curso o sede para encontrar los detalles específicos de tus clases.
+    Esta apartado muestra el horario de las clases STEAM. Aquí puedes ver los detalles completos de tus clases.
     """)
 
     # URL del archivo CSV en GitHub
@@ -32,25 +30,6 @@ with tabs[0]:
     st.header("Horario Completo")
     st.dataframe(data)
 
-    # Filtros
-    st.sidebar.header("Filtrar Horario")
-    semana = st.sidebar.selectbox("Seleccionar Semana", options=["Todas"] + sorted(data["Semana"].unique()))
-    curso = st.sidebar.selectbox("Seleccionar Curso", options=["Todos"] + sorted(data["Curso"].unique()))
-    sede = st.sidebar.selectbox("Seleccionar Sede", options=["Todas"] + sorted(data["Sede"].unique()))
-
-    # Aplicar filtros
-    filtered_data = data
-    if semana != "Todas":
-        filtered_data = filtered_data[filtered_data["Semana"] == semana]
-    if curso != "Todos":
-        filtered_data = filtered_data[filtered_data["Curso"] == curso]
-    if sede != "Todas":
-        filtered_data = filtered_data[filtered_data["Sede"] == sede]
-
-    # Mostrar datos filtrados
-    st.header("Horario Filtrado")
-    st.dataframe(filtered_data)
-
     # Mensaje de despedida
     st.markdown("""
     ---
@@ -63,7 +42,6 @@ with tabs[1]:
     url = "https://www.tiktok.com/@inefable12x/video/7463614157187861765?is_from_webapp=1&sender_device=pc&web_id=7464532847794472453"
     st.markdown("Revisa algunas imágenes de la sesión anterior [link](%s)" % url)
 
-    
     st.markdown("""
     En esta sección aprenderás cómo encender y apagar focos utilizando una placa Arduino. Este proyecto incluye:
 
