@@ -5,16 +5,17 @@ import pandas as pd
 st.set_page_config(page_title="STEAM - UPCH", layout="wide")
 
 st.info("STEAM EN UPCH 2025")
+st.write("Por Jesus Alvarado H, MSc. Dr.")
 
 # Crear pestañas
 tabs = st.tabs(["Horarios", "Encendiendo focos con Arduino", "Uso de servomotor con Arduino"])
 
 # Pestaña "Horarios"
 with tabs[0]:
-    st.title("Jesus Alvarado H, MSc. Dr.")
+    st.title("Horarios")
 
     st.markdown("""
-    Esta apartado muestra mis horario de las clases en el ciclo verano 2025.
+    Esta apartado muestra mis horarios en el ciclo verano 2025.
     """)
 
     # URL del archivo CSV en GitHub
