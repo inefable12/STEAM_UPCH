@@ -28,7 +28,7 @@ with tabs[0]:
     data = load_data()
 
     # Mostrar tabla completa
-    st.header("Horario Completo")
+    #st.header("H")
     st.dataframe(data)
 
     # Mensaje de despedida
