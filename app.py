@@ -4,8 +4,11 @@ import pandas as pd
 # Título principal de la página
 st.set_page_config(page_title="STEAM - UPCH", layout="wide")
 
+st.info("2025")
+
 # Crear pestañas
 tabs = st.tabs(["Horarios", "Encendiendo focos con Arduino", "Uso de servomotor con Arduino"])
+
 
 # Pestaña "Horarios"
 with tabs[0]:
